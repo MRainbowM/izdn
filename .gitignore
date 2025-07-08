@@ -58,6 +58,7 @@ cover/
 # Django stuff:
 *.log
 local_settings.py
+local.py
 db.sqlite3
 db.sqlite3-journal
 
@@ -164,6 +165,8 @@ dmypy.json
 
 # pytype static type analyzer
 .pytype/
+backend/static/admin
+backend/static/ninja
 
 # Cython debug symbols
 cython_debug/

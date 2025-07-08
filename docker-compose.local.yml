@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+    django-izdn:
+        container_name: django-izdn
+        build:
+            dockerfile: conf/dev.django.Dockerfile
+            context: .
+        command: bash -c "while true; do echo 'I am alive!'; sleep 3600; done"
+        ports:
+            - 8008:8008
+            - 3003:3003
+        environment:
+            - C_FORCE_ROOT=true
+        links:
+            - postgres-izdn:postgres-izdn.local
+        volumes:
+            - ./backend:/backend
+        
+            
+    postgres-izdn:
+        container_name: postgres-izdn
+        image: postgres:15.3
+        environment:
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_USER=postgres
+        volumes:
+            - ./conf/init.sql:/docker-entrypoint-initdb.d/init.sql
+            - postgres-volume-izdn:/var/lib/postgresql/data
+    
+
+volumes:
+    postgres-volume-izdn:
+    pgadmin-volume-izdn:
+        
+
+            
