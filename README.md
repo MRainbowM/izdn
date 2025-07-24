@@ -16,6 +16,14 @@ docker compose -f docker-compose.local.yml up
 
 ### Локальный запуск с uvicorn
 ```shell
-docker compose -f docker-compose.local.yml exec django-izdn python -m uvicorn basis.asgi:application --reload --host 0.0.0.0 --port 8008
+docker compose -f docker-compose.local.yml exec django-izdn python -m uvicorn basis.asgi:application --reload --host 0.0.0.0 --port 8005
 ```
 
+### Запуск фронтенда
+
+```sh
+cd frontend
+```
+```sh
+npm run dev
+```
